@@ -25,7 +25,7 @@ class Mostrar_janela():
         self.frame_1 = Frame(self.janela, bd=4, bg='lightgrey',highlightbackground='black', highlightthickness=1)
         self.frame_1.place(relx=0.02, rely=0.02, relwidth=0.46, relheight=0.26)
 
-        self.frame_2 = Frame(self.janela, bd=4, bg='lightgrey', highlightbackground='black', highlightthickness=1)
+        self.frame_2 = Frame(self.janela, bd=4, bg='lightgrey',highlightbackground='black', highlightthickness=1)
         self.frame_2.place(relx=0.50, rely=0.02, relwidth=0.46, relheight=0.26)
 
         self.frame_3 = Frame(self.janela, bd=4, bg='lightgrey',highlightbackground='black', highlightthickness=1)

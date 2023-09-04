@@ -1,10 +1,16 @@
-frase = str(input('Digite uma senha: '))
-lista = []
-lista = frase
+def cod_ascii():
+    palavra = input('Digite uma senha: ')
+    caracteres = list(palavra)
+    for caractere in caracteres:
+        código = ord(caractere)
+        print(código)
+    return código
 
-if lista == 'Aa':
-    print('001')
-elif lista == 'Bb':
-    print('010')
-else:
-    print('Não é possivel criptografar. ')
+def base_octal(código):
+    senha = bin(código)
+    senha = senha.strip('0o')
+    print( "octal", senha)
+    return senha
+
+código = cod_ascii()
+base_octal(código)
