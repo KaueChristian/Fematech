@@ -10,10 +10,6 @@ def convert(corda):
     resultado = []
     indice = []
     
-    # Definição da função limite
-    # X = sp.Symbol('X')
-    # funcao = (X + 2)**2
-    
     # Gera numeros aleatórios que serão as bases de conversão para cada caracter presente na string
     for i in chars:
         base = random.uniform(2.0, 10.0) # 10 > base >= 2
@@ -51,17 +47,34 @@ def deencrip(entrada, bases):
 #função pra calcular o polinomio de taylor, recebe como argumentos a função matemática na qual se deseja calcular o polinomio
 #e Cvalue que representa o ponto no plano cartesiano em torno do qual se da o cálculo
 #nem tenta entender o que ta escrito pq nem eu entendi direito ksksksks o importante e que essa função atuará como chave privada
-def taylors(func, Cvalue):
-    result = 0
-    for n in range(0, 10):
-        calculo = ((sp.diff(func.subs(sp.symbols('x'), Cvalue), sp.symbols('x'), n)) / math.factorial(n)) * (sp.symbols('x') - Cvalue)**n
-        result += calculo
+def taylors(Cvalue,func):
+    terms = []
+    x = sp.symbols('x')
+    for n in range(0, 50):
+        fX = sp.diff(func, x, n)
+        calculo = (fX.subs(x,Cvalue) / math.factorial(n)) * (x - Cvalue)**n
+        terms.append(calculo)
+    return terms
+
+def MacLaurin (func):
+    result = []
+    x = sp.symbols('x')
+    for n in range(0, 50):
+        fX = sp.diff(func, x, n)
+        calculo = (fX.subs(x,0) / math.factorial(n)) * (x ** n)
+        result.append(calculo)
     return result
 
+def teste(taylor,mac):
+  checklist = []
+  for item in mac:
+    for n in taylor:
+      if abs(item - n) < 1e-97:
+        checklist.append(True)
+      else: 
+        checklist.append(False)
+  return checklist
 
-def calculus (func):
-    result = 0
-    for n in range(0, 10):
-        calculo = ((sp.diff(func.subs(sp.symbols('x'), 0), sp.symbols('x'), n)) / math.factorial(n)) * (sp.symbols('x'))**n
-        result += calculo
-    return result
+# def calculus(bases):
+#    for item in bases:
+      
