@@ -13,7 +13,7 @@ def decrypt_message(key, encrypted_message):
 # Gere uma chave de criptografia
 key = Fernet.generate_key()
 
-sg.theme('DarkPurple4')
+sg.theme('DarkBlue')
 sg.set_options(font=('Helvetica', 12), element_padding=(5, 5))
 
 layout = [
