@@ -17,7 +17,7 @@ sg.theme('DarkBlue')
 sg.set_options(font=('Helvetica', 12), element_padding=(5, 5))
 
 layout = [
-    [sg.Text('Mensagem'), sg.Input(key='Mensagem')],
+    [sg.Text('Digite uma senha'), sg.Input(key='Mensagem')],
     [sg.Button('Criptografar'), sg.Button('Descriptografar')],
     [sg.Output(size=(70, 15))],
 ]
@@ -40,4 +40,3 @@ while True:
         print(f'Mensagem Descriptografada: {mensagem_descriptografada}')
 
 window.close()
-
